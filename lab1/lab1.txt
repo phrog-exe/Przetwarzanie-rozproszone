@@ -1,0 +1,25 @@
+# Laboratorium 1: Konfiguracja środowiska i sieci
+
+## Cel projektu
+Celem pierwszego etapu było przygotowanie fundamentu pod rozproszony system CMS (WordPress) z wykorzystaniem wirtualizacji i konteneryzacji.
+
+## Konfiguracja Maszyn Wirtualnych
+- **System operacyjny:** Ubuntu Desktop 24.04 LTS
+- **Platforma:** VirtualBox
+
+### Adresacja sieciowa
+Każda z maszyn posiada dwie karty sieciowe:
+1. **Karta 1 (NAT):** Zapewnia dostęp do Internetu dla instalacji pakietów (Docker, Git).
+2. **Karta 2 (Sieć wewnętrzna):** Służy do komunikacji między maszynami bez dostępu z zewnątrz.
+
+| Nazwa Maszyny | Rola w projekcie | IP (Sieć wewnętrzna) | Nazwa sieci w VirtualBox |
+|:--------------|:-----------------|:---------------------|:-------------------------|
+| **Desk1** | Serwer bazy danych (MySQL) | `192.168.10.10` | `projekt_lan` |
+| **Desk2** | Serwer aplikacji (WordPress) | `192.168.10.20` | `projekt_lan` |
+
+## Wykonane kroki
+1. **Wirtualizacja:** Instalacja dwóch instancji Ubuntu Desktop.
+2. **Sieć:** Konfiguracja statycznych adresów IP w systemie Ubuntu (poprzez Network Manager / Netplan) dla interfejsów w sieci wewnętrznej.
+3. **Komunikacja:** Sprawdzenie połączenia między maszynami za pomocą narzędzia `ping`.
+4. **Docker:** Instalacja silnika Docker oraz wtyczki Docker Compose z oficjalnego repozytorium na obu maszynach.
+5. **Git:** Inicjalizacja repozytorium i połączenie z GitHub w celu kontroli wersji plików konfiguracyjnych.
