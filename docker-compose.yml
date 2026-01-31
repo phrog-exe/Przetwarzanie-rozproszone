@@ -1,0 +1,23 @@
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: wp_site
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: 192.168.10.10
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: wp_password
+      WORDPRESS_DB_NAME: wordpress_db
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: pma
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: 192.168.10.10
+      PMA_USER: wp_user
+      PMA_PASSWORD: wp_password
